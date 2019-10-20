@@ -66,11 +66,13 @@ public class Puzzles
 
     result = new StringBuilder();
     if (m_MetaData.size() > 0) {
-      result.append("Meta-data\n");
+      result.append("Meta-data:\n");
       keys = new ArrayList<>(m_MetaData.keySet());
       Collections.sort(keys);
       for (String key: keys)
         result.append("- ").append(key).append(": ").append(m_MetaData.get(key)).append("\n");
+      result.append("\n");
+      result.append("Grids:\n");
       result.append("\n");
     }
 
