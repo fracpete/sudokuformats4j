@@ -3,5 +3,8 @@ Conversions for Sudoku puzzle files.
 
 ## File formats
 
-http://www.sudocue.net/fileformats.php
+The following file formats are supported
 
+* Puzzle Collections (.sdm)
+
+  * `com.github.fracpete.sudokuformats4j.PuzzleCollection` (read/write)
