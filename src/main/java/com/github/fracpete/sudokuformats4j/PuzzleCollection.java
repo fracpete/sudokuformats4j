@@ -32,7 +32,7 @@ import java.io.Reader;
 import java.io.Writer;
 
 /**
- * Reads Puzzle collections in ".sdm" format.
+ * Reads/writes Puzzle collections in ".sdm" format.
  * Stores a single puzzle as string string, row after row from the top.
  * Any other character than 1-9 is interpreted as empty cell.
  *
