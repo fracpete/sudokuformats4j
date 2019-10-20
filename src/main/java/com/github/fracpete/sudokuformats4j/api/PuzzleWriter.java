@@ -32,29 +32,29 @@ import java.io.Writer;
 public interface PuzzleWriter {
 
   /**
-   * Writes the grids to the specified file.
+   * Writes the puzzles to the specified file.
    *
    * @param file	the file to read from
-   * @param grids 	the puzzles
+   * @param puzzles 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(Puzzles grids, File file) throws Exception;
+  public void write(Puzzles puzzles, File file) throws Exception;
 
   /**
-   * Writes the grids using the specified writer.
+   * Writes the puzzles using the specified writer.
    *
    * @param writer	the writer to write to
-   * @param grids 	the puzzles
+   * @param puzzles 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(Puzzles grids, Writer writer) throws Exception;
+  public void write(Puzzles puzzles, Writer writer) throws Exception;
 
   /**
-   * Writes the grids using the specified stream.
+   * Writes the puzzles using the specified stream.
    *
    * @param stream	the stream to write to
-   * @param grids 	the puzzles
+   * @param puzzles 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(Puzzles grids, OutputStream stream) throws Exception;
+  public void write(Puzzles puzzles, OutputStream stream) throws Exception;
 }

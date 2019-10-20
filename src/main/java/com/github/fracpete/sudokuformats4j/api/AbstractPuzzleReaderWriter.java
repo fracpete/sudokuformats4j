@@ -44,7 +44,7 @@ public abstract class AbstractPuzzleReaderWriter
   implements PuzzleReader, PuzzleWriter {
 
   /**
-   * Reads the grids from the specified file.
+   * Reads the puzzles from the specified file.
    *
    * @param file	the file to read from
    * @return		the puzzles
@@ -69,7 +69,7 @@ public abstract class AbstractPuzzleReaderWriter
   }
 
   /**
-   * Reads the grids using the specified reader.
+   * Reads the puzzles using the specified reader.
    * Caller must close the reader.
    *
    * @param reader	the reader to use
@@ -79,7 +79,7 @@ public abstract class AbstractPuzzleReaderWriter
   protected abstract Puzzles doRead(Reader reader) throws Exception;
 
   /**
-   * Reads the grids using the specified reader.
+   * Reads the puzzles using the specified reader.
    * Caller must close the reader.
    *
    * @param reader	the reader to use
@@ -91,7 +91,7 @@ public abstract class AbstractPuzzleReaderWriter
   }
 
   /**
-   * Reads the grids using the specified stream.
+   * Reads the puzzles using the specified stream.
    * Caller must close the stream.
    *
    * @param stream	the stream to use
@@ -112,13 +112,13 @@ public abstract class AbstractPuzzleReaderWriter
   }
 
   /**
-   * Writes the grids to the specified file.
+   * Writes the puzzles to the specified file.
    *
    * @param file	the file to read from
-   * @param grids 	the puzzles
+   * @param puzzles 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(Puzzles grids, File file) throws Exception {
+  public void write(Puzzles puzzles, File file) throws Exception {
     FileWriter 		fwriter;
     BufferedWriter 	bwriter;
 
@@ -127,7 +127,7 @@ public abstract class AbstractPuzzleReaderWriter
     try {
       fwriter = new FileWriter(file);
       bwriter = new BufferedWriter(fwriter);
-      write(grids, bwriter);
+      write(puzzles, bwriter);
     }
     finally {
       IOUtils.closeQuietly(bwriter);
@@ -136,39 +136,39 @@ public abstract class AbstractPuzzleReaderWriter
   }
 
   /**
-   * Writes the grids using the specified writer.
+   * Writes the puzzles using the specified writer.
    *
    * @param writer	the writer to write to
-   * @param grids 	the puzzles
+   * @param puzzles 	the puzzles
    * @throws Exception	if writing fails
    */
-  protected abstract void doWrite(Puzzles grids, Writer writer) throws Exception;
+  protected abstract void doWrite(Puzzles puzzles, Writer writer) throws Exception;
 
   /**
-   * Writes the grids using the specified writer.
+   * Writes the puzzles using the specified writer.
    *
    * @param writer	the writer to write to
-   * @param grids 	the puzzles
+   * @param puzzles 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(Puzzles grids, Writer writer) throws Exception {
-    doWrite(grids, writer);
+  public void write(Puzzles puzzles, Writer writer) throws Exception {
+    doWrite(puzzles, writer);
   }
 
   /**
-   * Writes the grids using the specified stream.
+   * Writes the puzzles using the specified stream.
    *
    * @param stream	the stream to write to
-   * @param grids 	the puzzles
+   * @param puzzles 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(Puzzles grids, OutputStream stream) throws Exception {
+  public void write(Puzzles puzzles, OutputStream stream) throws Exception {
     OutputStreamWriter	writer;
 
     writer = null;
     try {
       writer = new OutputStreamWriter(stream);
-      write(grids, writer);
+      write(puzzles, writer);
     }
     finally {
       IOUtils.closeQuietly(writer);

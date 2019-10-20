@@ -32,7 +32,7 @@ public class PuzzleCollectionExample {
 
   public static void main(String[] args) throws Exception {
     PuzzleCollection pc = new PuzzleCollection();
-    Puzzles coll = pc.read(ClassLoader.getSystemResourceAsStream("com/github/fracpete/sudokuformats4j/examples/snow2005.sdm"));
-    System.out.println(coll);
+    Puzzles puzzles = pc.read(ClassLoader.getSystemResourceAsStream("com/github/fracpete/sudokuformats4j/examples/snow2005.sdm"));
+    System.out.println(puzzles);
   }
 }

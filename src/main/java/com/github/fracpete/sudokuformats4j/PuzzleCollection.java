@@ -86,11 +86,11 @@ public class PuzzleCollection
    * Writes the grids using the specified writer.
    *
    * @param writer	the writer to write to
-   * @param grids 	the puzzles
+   * @param puzzles 	the puzzles
    * @throws Exception	if writing fails
    */
   @Override
-  protected void doWrite(Puzzles grids, Writer writer) throws Exception {
+  protected void doWrite(Puzzles puzzles, Writer writer) throws Exception {
     BufferedWriter	bwriter;
     boolean		close;
 
@@ -104,7 +104,7 @@ public class PuzzleCollection
     }
 
     try {
-      for (Grid grid: grids) {
+      for (Grid grid: puzzles) {
         bwriter.write(grid.toLine());
         bwriter.newLine();
       }
