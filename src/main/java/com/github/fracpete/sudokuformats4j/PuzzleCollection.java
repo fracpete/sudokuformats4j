@@ -15,7 +15,7 @@
 
 /*
  * PuzzleCollection.java
- * Copyright (C) 2019 University of Waikato, Hamilton, NZ
+ * Copyright (C) 2019 FracPete
  */
 
 package com.github.fracpete.sudokuformats4j;
