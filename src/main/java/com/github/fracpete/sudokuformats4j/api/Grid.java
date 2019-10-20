@@ -123,11 +123,40 @@ public class Grid
   }
 
   /**
-   * Returns a simple string representation of the grid.
+   * Returns the grid as single line (row-wise, from top).
+   *
+   * @return		the grid as line
+   */
+  public String toLine() {
+    StringBuilder	result;
+    int 		y;
+    int 		x;
+    int			subY;
+    int			subX;
+    SubGrid		sub;
+
+    result = new StringBuilder();
+
+    for (y = 0; y < m_Rows; y++) {
+      for (subY = 0; subY < get(0, 0).rows(); subY++) {
+        for (x = 0; x < m_Cols; x++) {
+          sub = get(y, x);
+	  for (subX = 0; subX < sub.cols(); subX++) {
+	    result.append(sub.get(subY, subX));
+	  }
+	}
+      }
+    }
+
+    return result.toString();
+  }
+
+  /**
+   * Returns the grid in a grid string representation.
    *
    * @return		the representation
    */
-  public String toString() {
+  public String toGrid() {
     StringBuilder 	result;
     int 		y;
     int 		x;
@@ -169,5 +198,15 @@ public class Grid
 
 
     return result.toString();
+  }
+
+  /**
+   * Returns a simple string representation of the grid.
+   *
+   * @return		the representation
+   * @see		#toGrid()
+   */
+  public String toString() {
+    return toGrid();
   }
 }

@@ -21,9 +21,8 @@
 package com.github.fracpete.sudokuformats4j;
 
 import com.github.fracpete.sudokuformats4j.api.AbstractPuzzleReaderWriter;
-import com.github.fracpete.sudokuformats4j.api.Puzzles;
 import com.github.fracpete.sudokuformats4j.api.Grid;
-import com.github.fracpete.sudokuformats4j.api.SubGrid;
+import com.github.fracpete.sudokuformats4j.api.Puzzles;
 import com.github.fracpete.sudokuformats4j.utils.IOUtils;
 
 import java.io.BufferedReader;
@@ -116,12 +115,6 @@ public class PuzzleCollection
   protected void doWrite(Puzzles grids, Writer writer) throws Exception {
     BufferedWriter	bwriter;
     boolean		close;
-    StringBuilder	puzzle;
-    int			row;
-    int			col;
-    int			subRow;
-    int			subCol;
-    SubGrid		sub;
 
     if (writer instanceof BufferedWriter) {
       bwriter = (BufferedWriter) writer;
@@ -134,20 +127,7 @@ public class PuzzleCollection
 
     try {
       for (Grid grid: grids) {
-        puzzle = new StringBuilder();
-
-        for (row = 0; row < grid.rows(); row++) {
-	  for (subRow = 0; subRow < grid.get(0, 0).rows(); subRow++) {
-	    for (col = 0; col < grid.cols(); col++) {
-	      sub = grid.get(row, col);
-	      for (subCol = 0; subCol < sub.cols(); subCol++) {
-	        puzzle.append(sub.get(subRow, subCol));
-	      }
-	    }
-	  }
-	}
-
-        bwriter.write(puzzle.toString());
+        bwriter.write(grid.toLine());
         bwriter.newLine();
       }
     }
