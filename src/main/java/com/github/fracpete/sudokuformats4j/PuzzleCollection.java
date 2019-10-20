@@ -21,6 +21,7 @@
 package com.github.fracpete.sudokuformats4j;
 
 import com.github.fracpete.sudokuformats4j.api.AbstractPuzzleReaderWriter;
+import com.github.fracpete.sudokuformats4j.api.Puzzles;
 import com.github.fracpete.sudokuformats4j.api.Grid;
 import com.github.fracpete.sudokuformats4j.api.SubGrid;
 import com.github.fracpete.sudokuformats4j.utils.IOUtils;
@@ -29,8 +30,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.Reader;
 import java.io.Writer;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Reads Puzzle collections in ".sdm" format.
@@ -51,8 +50,8 @@ public class PuzzleCollection
    * @throws Exception	if reading fails
    */
   @Override
-  protected List<Grid> doRead(Reader reader) throws Exception {
-    List<Grid>		result;
+  protected Puzzles doRead(Reader reader) throws Exception {
+    Puzzles result;
     String		line;
     BufferedReader	breader;
     boolean		close;
@@ -65,7 +64,7 @@ public class PuzzleCollection
     char		c;
     byte		value;
 
-    result = new ArrayList<>();
+    result = new Puzzles();
 
     if (reader instanceof BufferedReader) {
       breader = (BufferedReader) reader;
@@ -114,7 +113,7 @@ public class PuzzleCollection
    * @throws Exception	if writing fails
    */
   @Override
-  protected void doWrite(List<Grid> grids, Writer writer) throws Exception {
+  protected void doWrite(Puzzles grids, Writer writer) throws Exception {
     BufferedWriter	bwriter;
     boolean		close;
     StringBuilder	puzzle;

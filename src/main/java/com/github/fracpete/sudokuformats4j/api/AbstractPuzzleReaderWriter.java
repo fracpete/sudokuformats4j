@@ -33,7 +33,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
-import java.util.List;
 
 /**
  * Ancestor for classes that can read/write. Only requires to implement
@@ -51,7 +50,7 @@ public abstract class AbstractPuzzleReaderWriter
    * @return		the puzzles
    * @throws Exception	if reading fails
    */
-  public List<Grid> read(File file) throws Exception {
+  public Puzzles read(File file) throws Exception {
     FileReader		freader;
     BufferedReader	breader;
 
@@ -77,7 +76,7 @@ public abstract class AbstractPuzzleReaderWriter
    * @return		the puzzles
    * @throws Exception	if reading fails
    */
-  protected abstract List<Grid> doRead(Reader reader) throws Exception;
+  protected abstract Puzzles doRead(Reader reader) throws Exception;
 
   /**
    * Reads the grids using the specified reader.
@@ -87,7 +86,7 @@ public abstract class AbstractPuzzleReaderWriter
    * @return		the puzzles
    * @throws Exception	if reading fails
    */
-  public List<Grid> read(Reader reader) throws Exception {
+  public Puzzles read(Reader reader) throws Exception {
     return doRead(reader);
   }
 
@@ -99,7 +98,7 @@ public abstract class AbstractPuzzleReaderWriter
    * @return		the puzzles
    * @throws Exception	if reading fails
    */
-  public List<Grid> read(InputStream stream) throws Exception {
+  public Puzzles read(InputStream stream) throws Exception {
     InputStreamReader   reader;
 
     reader = null;
@@ -119,7 +118,7 @@ public abstract class AbstractPuzzleReaderWriter
    * @param grids 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(List<Grid> grids, File file) throws Exception {
+  public void write(Puzzles grids, File file) throws Exception {
     FileWriter 		fwriter;
     BufferedWriter 	bwriter;
 
@@ -143,7 +142,7 @@ public abstract class AbstractPuzzleReaderWriter
    * @param grids 	the puzzles
    * @throws Exception	if writing fails
    */
-  protected abstract void doWrite(List<Grid> grids, Writer writer) throws Exception;
+  protected abstract void doWrite(Puzzles grids, Writer writer) throws Exception;
 
   /**
    * Writes the grids using the specified writer.
@@ -152,7 +151,7 @@ public abstract class AbstractPuzzleReaderWriter
    * @param grids 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(List<Grid> grids, Writer writer) throws Exception {
+  public void write(Puzzles grids, Writer writer) throws Exception {
     doWrite(grids, writer);
   }
 
@@ -163,7 +162,7 @@ public abstract class AbstractPuzzleReaderWriter
    * @param grids 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(List<Grid> grids, OutputStream stream) throws Exception {
+  public void write(Puzzles grids, OutputStream stream) throws Exception {
     OutputStreamWriter	writer;
 
     writer = null;

@@ -23,7 +23,6 @@ package com.github.fracpete.sudokuformats4j.api;
 import java.io.File;
 import java.io.InputStream;
 import java.io.Reader;
-import java.util.List;
 
 /**
  * Interface for sudoky puzzle readers.
@@ -39,7 +38,7 @@ public interface PuzzleReader {
    * @return		the puzzles
    * @throws Exception	if reading fails
    */
-  public List<Grid> read(File file) throws Exception;
+  public Puzzles read(File file) throws Exception;
 
   /**
    * Reads the grids using the specified reader.
@@ -49,7 +48,7 @@ public interface PuzzleReader {
    * @return		the puzzles
    * @throws Exception	if reading fails
    */
-  public List<Grid> read(Reader reader) throws Exception;
+  public Puzzles read(Reader reader) throws Exception;
 
   /**
    * Reads the grids using the specified stream.
@@ -59,5 +58,5 @@ public interface PuzzleReader {
    * @return		the puzzles
    * @throws Exception	if reading fails
    */
-  public List<Grid> read(InputStream stream) throws Exception;
+  public Puzzles read(InputStream stream) throws Exception;
 }

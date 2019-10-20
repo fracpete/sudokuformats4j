@@ -20,12 +20,9 @@
 
 package com.github.fracpete.sudokuformats4j.api;
 
-import com.github.fracpete.sudokuformats4j.api.Grid;
-
 import java.io.File;
 import java.io.OutputStream;
 import java.io.Writer;
-import java.util.List;
 
 /**
  * Interface for sudoku puzzle writers.
@@ -41,7 +38,7 @@ public interface PuzzleWriter {
    * @param grids 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(List<Grid> grids, File file) throws Exception;
+  public void write(Puzzles grids, File file) throws Exception;
 
   /**
    * Writes the grids using the specified writer.
@@ -50,7 +47,7 @@ public interface PuzzleWriter {
    * @param grids 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(List<Grid> grids, Writer writer) throws Exception;
+  public void write(Puzzles grids, Writer writer) throws Exception;
 
   /**
    * Writes the grids using the specified stream.
@@ -59,5 +56,5 @@ public interface PuzzleWriter {
    * @param grids 	the puzzles
    * @throws Exception	if writing fails
    */
-  public void write(List<Grid> grids, OutputStream stream) throws Exception;
+  public void write(Puzzles grids, OutputStream stream) throws Exception;
 }

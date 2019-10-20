@@ -135,6 +135,7 @@ public class Grid
     int			subX;
     int			i;
     SubGrid		sub;
+    byte		value;
 
     result = new StringBuilder();
 
@@ -155,7 +156,11 @@ public class Grid
 	  if (x > 0)
 	    result.append("|");
 	  for (subX = 0; subX < sub.cols(); subX++) {
-	    result.append(sub.get(subY, subX));
+	    value = sub.get(subY, subX);
+	    if (value > 0)
+	      result.append(value);
+	    else
+	      result.append(" ");
 	  }
 	}
 	result.append("\n");
