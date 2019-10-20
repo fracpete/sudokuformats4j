@@ -152,6 +152,44 @@ public class Grid
   }
 
   /**
+   * Parses the line representation (expects 81 chars for 3x3 X 3x3 grid).
+   *
+   * @param line	the line to parse
+   * @return		the parsed grid, null if failed to parse
+   */
+  public static Grid fromLine(String line) {
+    Grid 	result;
+    int		i;
+    int		row;
+    int		col;
+    int		subRow;
+    int		subCol;
+    char	c;
+    byte	value;
+
+    result = null;
+    if (line.length() == 81) {
+      result = new Grid(3, 3, 3, 3);
+      for (i = 0; i < line.length(); i++) {
+	c      = line.charAt(i);
+	value  = 0;
+	if ((c > '0') && (c <= '9'))
+	  value = Byte.parseByte("" + c);
+	row    = i / 27;
+	col    = (i / 3) % 3;
+	subRow = ((i / 9) % 3);
+	subCol = (i % 3);
+	result.get(row, col).set(subRow, subCol, value);
+      }
+    }
+    else {
+      System.err.println("Unhandled line length of " + line.length() + ": " + line);
+    }
+
+    return result;
+  }
+
+  /**
    * Returns the grid in a grid string representation.
    *
    * @return		the representation

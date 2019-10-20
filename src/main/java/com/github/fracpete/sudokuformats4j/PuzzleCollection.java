@@ -50,18 +50,11 @@ public class PuzzleCollection
    */
   @Override
   protected Puzzles doRead(Reader reader) throws Exception {
-    Puzzles result;
+    Puzzles 		result;
     String		line;
     BufferedReader	breader;
     boolean		close;
     Grid		grid;
-    int			i;
-    int			row;
-    int			col;
-    int			subRow;
-    int			subCol;
-    char		c;
-    byte		value;
 
     result = new Puzzles();
 
@@ -76,24 +69,9 @@ public class PuzzleCollection
 
     try {
       while ((line = breader.readLine()) != null) {
-        if (line.length() == 81) {
-          grid = new Grid(3, 3, 3, 3);
-          result.add(grid);
-          for (i = 0; i < line.length(); i++) {
-            c      = line.charAt(i);
-            value  = 0;
-            if ((c > '0') && (c <= '9'))
-              value = Byte.parseByte("" + c);
-            row    = i / 27;
-            col    = (i / 3) % 3;
-            subRow = ((i / 9) % 3);
-            subCol = (i % 3);
-            grid.get(row, col).set(subRow, subCol, value);
-	  }
-	}
-	else {
-          System.err.println("Unhandled line length of " + line.length() + ": " + line);
-	}
+	grid = Grid.fromLine(line);
+	if (grid != null)
+	  result.add(grid);
       }
     }
     finally {
